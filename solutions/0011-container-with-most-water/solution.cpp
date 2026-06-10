@@ -1,13 +1,19 @@
 class Solution {
-public:
-    int maxArea(vector<int>& height) {
-        int mw= 0, lp =0, rp= height.size()-1;
-         while (lp<rp){
-            int w =rp - lp,ht= min(height[lp],height[rp]),cw= ht*w;
-            mw= max(mw,cw);
-            height[lp] < height[rp] ? lp++ : rp--;
-        }
-        return mw;
-        
+ public:
+  int maxArea(vector<int>& height) {
+    int ans = 0;
+    int l = 0;
+    int r = height.size() - 1;
+
+    while (l < r) {
+      const int minHeight = min(height[l], height[r]);
+      ans = max(ans, minHeight * (r - l));
+      if (height[l] < height[r])
+        ++l;
+      else
+        --r;
     }
+
+    return ans;
+  }
 };
