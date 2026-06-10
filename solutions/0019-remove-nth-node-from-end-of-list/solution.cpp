@@ -28,9 +28,10 @@ public:
             slow=slow->next;
 
         }
-        ListNode* del = slow->next;
-        slow->next = del->next;
-        delete del;
+        // ListNode* del = slow->next;
+        // slow->next = del->next;
+        // delete del;
+        slow->next=slow->next->next;
 
         return head;
         
