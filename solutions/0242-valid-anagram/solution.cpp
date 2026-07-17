@@ -1,14 +1,41 @@
 class Solution {
-public:
-    bool isAnagram(string s, string t) {
-        if(s.length() != t.length()){
-            return false;
-        }
 
-        sort(s.begin(), s.end());
-        sort(t.begin(), t.end());
+	public:
 
-        return s == t;
-        
-    }
-};
+	    bool isAnagram(string s, string t) {
+
+	        if (s.size() != t.size()) {
+
+	            return false;
+
+	        }
+
+	 
+
+	        unordered_map<char, int> sMap, tMap;
+
+	 
+
+	        for (char c : s) {
+
+	            sMap[c]++;
+
+	        }
+
+	 
+
+	        for (char c : t) {
+
+	            tMap[c]++;
+
+	        }
+
+	 
+
+	        return sMap == tMap;
+
+	    }
+
+	};
+
+	 
